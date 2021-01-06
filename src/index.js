@@ -1,5 +1,6 @@
 const $temperature = document.getElementById('temperature');
 const $unit = document.getElementById('unit');
+const $preset = document.getElementById('preset');
 const $boilingVerdict = document.getElementById('boiling-verdict');
 
 function convertCelsiusToFahrenheit(celsius) {
@@ -32,4 +33,11 @@ $unit.addEventListener('input', function() {
     } else {
         $temperature.value = convertCelsiusToFahrenheit($temperature.value);
     }
+});
+
+$preset.addEventListener('click', function() {
+    $temperature.value = 37;
+    $unit.value = 'c';
+
+    updateBoilingVerdict();
 });
