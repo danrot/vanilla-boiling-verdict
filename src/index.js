@@ -3,10 +3,6 @@ const $unit = document.getElementById('unit');
 const $preset = document.getElementById('preset');
 const $boilingVerdict = document.getElementById('boiling-verdict');
 
-function convertCelsiusToFahrenheit(celsius) {
-    return celsius * 9 / 5 + 32;
-}
-
 function convertFahrenheitToCelsius(fahrenheit) {
     return (fahrenheit - 32) * 5 / 9;
 }
@@ -26,13 +22,7 @@ $temperature.addEventListener('input', function() {
 });
 
 $unit.addEventListener('input', function() {
-    // This only works because there are only two states
-    // If more units would be available, then the previously selected unit would have to be stored additionally
-    if ($unit.value === 'c') {
-        $temperature.value = convertFahrenheitToCelsius($temperature.value);
-    } else {
-        $temperature.value = convertCelsiusToFahrenheit($temperature.value);
-    }
+    updateBoilingVerdict();
 });
 
 $preset.addEventListener('click', function() {
